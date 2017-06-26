@@ -1,0 +1,58 @@
+{
+  "name": "convertVCF2GDS_v3",
+  "title": "convertVCF2GDS",
+  "summary": "Uses the R SeqArray package to convert a VCF file into GDS format.",
+  "tags": [
+    "Statistics"
+  ],
+  "dxapi": "1.0.0",
+  "inputSpec": [
+    {
+      "name": "vcf_filename",
+      "label": "Required",
+      "class": "array:file",
+      "optional": false
+    },
+    {
+      "name": "file_basename",
+      "class": "string",
+      "optional": false
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "results",
+      "class": "file"
+    }
+  ],
+  "runSpec": {
+    "execDepends": [
+      {
+        "name": "libxml2-dev"
+      }
+    ],
+    "systemRequirementsByRegion": {
+      "aws:us-east-1": {
+        "main": {
+          "instanceType": "mem1_ssd1_x8"
+        }
+      }
+    },
+    "systemRequirements": {
+      "main": {
+        "instanceType": "mem1_ssd1_x8"
+      }
+    },
+    "file": "src/code.sh",
+    "release": "14.04",
+    "interpreter": "bash",
+    "distribution": "Ubuntu"
+  },
+  "access": {
+    "project": "CONTRIBUTE",
+    "allProjects": "CONTRIBUTE",
+    "network": [
+      "*"
+    ]
+  }
+}
